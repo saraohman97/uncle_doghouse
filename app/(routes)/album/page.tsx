@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const images = [
+const images = [
   {
     id: 1,
     src: "/bg.svg",
