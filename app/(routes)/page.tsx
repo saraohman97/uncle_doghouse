@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,18 +21,21 @@ const OnePage = () => {
           <div className="text-2xl font-semibold mt-8">2024</div>
           Lördag 16 mars: Release Party, Global Living Västerås. <br />
           Lördag 8 april: Bierkeller Västerås 20:45
-          <div className="flex gap-6 my-8">
+          <div 
+          // className="flex gap-6 my-8"
+          className="my-8"
+          >
             <Link
               href="/tours"
-              className="text-sm border-b font-extralight text-neutral-700 border-b-neutral-600 w-fit hover:text-red-500 hover:border-b-red-500"
+              scroll={true}
             >
-              {"<--"}Tours
+              <Button variant='link'>{"<--"}Tours</Button>
             </Link>
             <Link
               href="/boka"
-              className="text-sm border-b font-extralight text-neutral-700 border-b-neutral-600 w-fit hover:text-red-500 hover:border-b-red-500"
+              // className="text-sm border-b font-extralight text-neutral-700 border-b-neutral-600 w-fit hover:text-red-500 hover:border-b-red-500"
             >
-              Boka spelning{"-->"}
+              <Button variant='link'>Boka spelning{"-->"}</Button>
             </Link>
           </div>
         </div>

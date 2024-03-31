@@ -18,7 +18,6 @@ const AdminNav = () => {
         <div className="p-4 gap-4 flex">
           <Link href='/admin/bokning' className={pathname === '/admin/bokning' ? '' : 'text-neutral-400'}>Kalender & bokningar</Link>
           <Link href='/admin/album' className={pathname === '/admin/album' ? '' : 'text-neutral-400'}>Fotoalbum</Link>
-          <Link href='/admin/year' className={pathname === '/admin/year' ? '' : 'text-neutral-400'}>Nytt år</Link>
         </div>
         {/* <div className="bg-black rounded-full text-white w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-neutral-800 overflow-hidden">
           <Image

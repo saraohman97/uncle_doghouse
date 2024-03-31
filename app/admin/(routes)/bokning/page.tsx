@@ -8,52 +8,42 @@ const AdminPage = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative">
-      {/* {open && (
-        <div className="absolute z-40 inset-0 bg-black/50">
-          <div className="flex items-center my-20 ml-20 bg-white">
-            <div className="flex-1">
-              <div className="text-sm">Välj ett datum</div>
-              <Image
-                src="/calendar.png"
-                width={500}
-                height={500}
-                alt=""
-                className="object-contain w-80"
-              />
-            </div>
-
-            <div className="flex-1">
-              <div className="text-2xl font-extralight uppercase text-neutral-400 mb-6 underline underline-offset-4">
-                Skapa bokningar
+    <div>
+      {open && (
+        <>
+          <div
+            className="fixed inset-0 bg-black/50 z-30 flex items-center justify-center"
+            onClick={() => setOpen(false)}
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div
+              className={`fixed z-40 bg-white rounded-xl p-10 sm:min-w-[400px] space-y-6 ${
+                open
+                  ? "opacity-100 transition-opacity duration-300 ease-in-out"
+                  : "opacity-0"
+              }`}
+            >
+              {/* MODAL CONTENT */}
+              <div className="flex justify-between">
+                <div className="text-xl font-semibold">Uppdatera bokning</div>
+                <div onClick={() => setOpen(false)}>X</div>
               </div>
-
-              <div>
-                <div className="text-sm">Välj en tid</div>
-                <div className="border rounded h-10 w-80 mb-6"></div>
-              </div>
-              <div>
-                <div className="text-sm">Välj en plats</div>
-                <div className="border rounded h-10 w-80 mb-6"></div>
-              </div>
-              <div>
-                <div className="text-sm">Länk till bokningssida/hemida</div>
-                <div className="border rounded h-10 w-80 mb-6"></div>
-              </div>
-              <div>
-                <div className="text-sm">
-                  Extra beskrivning Ex.Release party
+              <div className="flex">
+                <div className="bg-white px-2 min-w-10 flex items-center justify-center rounded-s font-semibold hover:bg-slate-50 cursor-pointer border text-sm">
+                  2024
                 </div>
-                <div className="border rounded h-10 w-80 mb-6"></div>
+                <div className="border h-10 w-96 rounded-l text-neutral-500 flex items-center justify-start px-4 py-2 text-sm">Lördag 16 mars: Release Party, Global Living</div>
+                <div className="bg-black py-2 px-4 rounded-e font-semibold hover:bg-neutral-800 text-white cursor-pointer w-fit">
+                  Uppdatera
+                </div>
               </div>
-
-              <div className="bg-black py-2 px-4 rounded font-semibold hover:bg-neutral-800 text-white cursor-pointer w-fit">
-                Boka
-              </div>
+              {/* <div className="cursor-pointer hover:bg-black/90 py-2 px-3 bg-black rounded text-white font-semibold w-fit">
+                Spara
+              </div> */}
             </div>
           </div>
-        </div>
-      )} */}
+        </>
+      )}
 
       <div className="flex flex-col items-center">
         <div className="my-20 w-full">
@@ -64,9 +54,9 @@ const AdminPage = () => {
           <div className="w-full flex-1 columns-2">
             {/* CREATE-BOOKING FORM */}
             <div className="flex w-full">
-              {/* <div className="bg-white min-w-10 flex items-center justify-center rounded-s font-semibold hover:bg-slate-50 cursor-pointer border text-sm">
+              <div className="bg-white px-2 min-w-10 flex items-center justify-center rounded-s font-semibold hover:bg-slate-50 cursor-pointer border text-sm">
                 2024
-              </div> */}
+              </div>
 
               <div className="border h-10 w-96 rounded-l" />
 
@@ -76,14 +66,23 @@ const AdminPage = () => {
             </div>
             {/* LIST OF BOOKINGS */}
             <div className="text-2xl font-semibold mt-8">2024</div>
-            <div className="flex items-center gap-4 hover:bg-slate-50 rounded">
+            <div className="flex items-center justify-between gap-4 hover:bg-slate-50 rounded group">
               <div>Lördag 16 mars: Release Party, Global Living Västerås.</div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 opacity-0 group-hover:opacity-100 cursor-pointer">
+                <BiEdit
+                  className="text-teal-700"
+                  onClick={() => setOpen(true)}
+                />
                 <BiTrash className="text-red-500" />
-                <BiEdit className="text-teal-700" />
               </div>
             </div>
-            Lördag 8 april: Bierkeller Västerås 20:45
+            <div className="flex items-center justify-between gap-4 hover:bg-slate-50 rounded group">
+              <div>Lördag 8 april: Bierkeller Västerås 20:45</div>
+              <div className="flex gap-2 opacity-0 group-hover:opacity-100">
+                <BiEdit className="text-teal-700" />
+                <BiTrash className="text-red-500" />
+              </div>
+            </div>
             <div className="text-2xl font-semibold mt-8">2023</div>
             Lördag 1 april, Private Party <br />
             Lördag 13 maj, Bierkeller Västerås (Bordsbokning: 021 80 02 00){" "}
